@@ -20,12 +20,15 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    khoaHocService.layAllDanhMucKhoaHoc().then((res) => {
-      setValueDanhMuc(res.data);
-    }).catch(() => {
-      console.log(err);
-    })
-  }, [])
+    khoaHocService
+      .layAllDanhMucKhoaHoc()
+      .then((res) => {
+        setValueDanhMuc(res.data);
+      })
+      .catch(() => {
+        console.log(err);
+      });
+  }, []);
   const items = [
     {
       label: (
@@ -77,12 +80,17 @@ const Header = () => {
       </Dropdown>
     ) : (
       <>
-        <Link className="me-8 text-white" to={"/login"}>
-          Đăng nhập
-        </Link>
-        <Link className="text-white" to={"/sign-up"}>
-          Đăng ký
-        </Link>
+        <div className="flex items-center justify-between gap-5">
+          <Link
+            className="text-white border-2 rounded-md p-2 hover:bg-white hover:text-purple-700 duration-300"
+            to={"/login"}
+          >
+            Đăng nhập
+          </Link>
+          {/* <Link className="text-white border-2 rounded-md p-2" to={"/sign-up"}>
+            Đăng ký
+          </Link> */}
+        </div>
       </>
     );
   };
@@ -90,25 +98,38 @@ const Header = () => {
   return (
     <>
       <header>
-        <div className="container max-w-full">
-          <div className="header_container">
-            <nav className="header_main sm:text-xs md:text-sm lg:text-base tiny:!hidden sm:!block">
-              <div className="header_navigate w-full flex items-center justify-around ">
-                <Link className="header_logo me-5" to={path.homePage}>
-                  <LogoIcon />
-                </Link>
-                <CourseMenu valueDanhMuc={valueDanhMuc} />
-                <WrapperSuggestCourse>
-                  <FormSearchKhoaHoc />
-                </WrapperSuggestCourse>
-                <div className="inline-block w-4/12 text-right">
-                  {checkUserLogin()}
-                </div>
-              </div>
-            </nav>
-            {/* <MobileMenu valueDanhMuc={valueDanhMuc} /> */}
-            <MobileMenuGlass valueDanhMuc={valueDanhMuc} />
+        <div className="container">
+          <div className="flex items-center justify-between">
+            {/* <nav className="header_main sm:text-xs md:text-sm lg:text-base tiny:!hidden sm:!block"> */}
+            <div className="flex items-center justify-between gap-8">
+              <Link className="" to={path.homePage}>
+                <LogoIcon />
+              </Link>
+              <WrapperSuggestCourse>
+                <FormSearchKhoaHoc />
+              </WrapperSuggestCourse>
+            </div>
+            <div className="uppercase text-white flex items-center gap-5">
+              <CourseMenu valueDanhMuc={valueDanhMuc} />
+              <Link className="hover:scale-105 hover:text-purple-300 duration-300">
+                Khóa học
+              </Link>
+              <Link className="hover:scale-105 hover:text-purple-300 duration-300">
+                blog
+              </Link>
+              <Link className="hover:scale-105 hover:text-purple-300 duration-300">
+                sự kiện
+              </Link>
+              <Link className="hover:scale-105 hover:text-purple-300 duration-300">
+                thông tin
+              </Link>
+            </div>
+            <div className="flex items-center justify-between ">
+              <div className="">{checkUserLogin()}</div>
+            </div>
           </div>
+          {/* <MobileMenu valueDanhMuc={valueDanhMuc} /> */}
+          <MobileMenuGlass valueDanhMuc={valueDanhMuc} />
         </div>
       </header>
     </>
