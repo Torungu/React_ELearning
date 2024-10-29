@@ -1,0 +1,31 @@
+@mixin styleInput ($bg, $color, $pd) {
+    background-color: $bg;
+    padding: $pd !important;
+    color: $color !important;
+
+    &::placeholder {
+        color: white;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .1);
+    }
+}
+
+@mixin styleButton ($bg, $color, $pd, $hover-bg, $hover-color: white) {
+    background-color: $bg;
+    color: $color;
+    padding: $pd;
+    border: 2px solid $blue-700;
+    border-radius: 10px;
+    transition: all .5s;
+    font-size: 15px;
+    line-height: 1;
+    text-align: center;
+
+    &:hover {
+        background-color: $hover-bg;
+        color: $hover-color;
+    }
+}

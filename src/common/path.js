@@ -1,0 +1,17 @@
+export const path = {
+  homePage: "/",
+  pageNotFound: "*",
+  danhMucKhoaHoc: "/danh-muc-khoa-hoc",
+  timKiemKhoaHoc: "/tim-kiem-khoa-hoc",
+  chiTietKhoaHoc: "/chi-tiet",
+  loginPage: "/login",
+  signUpPage: "/sign-up",
+  userInfo: "/user-info",
+  adminPage: "/admin",
+  manageUser: "/admin/manage-user",
+  manageCourse: "/admin/manage-course",
+  addUser: "/admin/add-user",
+  editUser: "/admin/edit-user",
+  addCourse: "/admin/add-course",
+  editCourse: "/admin/edit-course",
+};
