@@ -27,7 +27,7 @@ const FormSearchKhoaHoc = ({ setOpenDropdown, handleGetValueChildren }) => {
       <form onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
-          className="outline-none p-2 rounded-md border-none"
+          className="outline-none py-2 px-4 rounded-md border-none"
           type="text"
           placeholder="Tìm khóa học"
         />

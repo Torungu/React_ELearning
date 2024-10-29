@@ -101,16 +101,18 @@ const Header = () => {
         <div className="container">
           <div className="flex items-center justify-between">
             {/* <nav className="header_main sm:text-xs md:text-sm lg:text-base tiny:!hidden sm:!block"> */}
-            <div className="flex items-center justify-between gap-8">
-              <Link className="" to={path.homePage}>
+            <div className="flex items-center gap-8">
+              <Link to={path.homePage}>
                 <LogoIcon />
               </Link>
               <WrapperSuggestCourse>
                 <FormSearchKhoaHoc />
               </WrapperSuggestCourse>
             </div>
-            <div className="uppercase text-white flex items-center gap-5">
-              <CourseMenu valueDanhMuc={valueDanhMuc} />
+            <div className="uppercase text-white flex items-center gap-5 header_group_menu">
+              <div className="header_item hover:scale-105 duration-300">
+                <CourseMenu valueDanhMuc={valueDanhMuc} />
+              </div>
               <Link className="hover:scale-105 hover:text-purple-300 duration-300">
                 Khóa học
               </Link>

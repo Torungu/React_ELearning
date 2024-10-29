@@ -15,7 +15,8 @@ const CourseMenu = ({ valueDanhMuc }) => {
   }));
 
   return (
-    <div className="menuDanhMuc ">
+    // <div className="menuDanhMuc">
+    <div>
       <Dropdown
         menu={{
           items,
@@ -23,11 +24,11 @@ const CourseMenu = ({ valueDanhMuc }) => {
         trigger={["click"]}
       >
         <button
-          className="py-2 px-2 bg-transparent hover:scale-105 hover:text-purple-300 duration-300"
+          className="py-2 px-2 bg-transparent flex items-center"
           onClick={(e) => e.preventDefault()}
         >
           <i className="fa-solid fa-bars me-3 text-white text-md" />
-          <Space className="text-white uppercase">Danh mục khóa học</Space>
+          <p className="text-white uppercase">Danh mục khóa học</p>
         </button>
       </Dropdown>
     </div>

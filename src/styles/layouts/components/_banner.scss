@@ -5,11 +5,13 @@
   button:first-of-type {
     @include styleButton($pink-700, white, 13px 20px, $blue-700);
     font-weight: 600;
+    border-color: transparent;
   }
 
   button:last-of-type {
     @include styleButton($pink-700, white, 13px 20px, $blue-700);
-    background-size: 150%;
+    background-size: 300%;
+    border-color: transparent;
     // background-image: linear-gradient(to right, $blue-700 0, $pink-700 51%, $blue-700 100%);
     background-image: linear-gradient(
       to right,
@@ -26,11 +28,11 @@
   }
 
   img {
-    transition: all 1s;
-
-    &:hover {
-      transform: translateY(-30px);
-    }
+    // transition: all 1s;
+    // &:hover {
+    //   transform: translateY(-30px);
+    // }
+    animation: rotate 4s infinite;
   }
 }
 

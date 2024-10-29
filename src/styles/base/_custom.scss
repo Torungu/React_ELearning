@@ -1,19 +1,31 @@
-@media screen and (max-width:311px) {
-    .container {
-        max-width: 100% !important;
-    }
+@media screen and (max-width: 311px) {
+  .container {
+    max-width: 100% !important;
+  }
 }
 
 @keyframes move2 {
-    0% {
-        transform: rotate(1deg) translate(2px, 2px);
-    }
+  0% {
+    transform: rotate(1deg) translate(2px, 2px);
+  }
 
-    50% {
-        transform: rotate(-1deg) translate(-2px, -2px);
-    }
+  50% {
+    transform: rotate(-1deg) translate(-2px, -2px);
+  }
 
-    100% {
-        transform: rotate(1deg) translate(2px, 2px);
-    }
+  100% {
+    transform: rotate(1deg) translate(2px, 2px);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
 }
