@@ -5,7 +5,7 @@ import CountUp from "react-countup";
 const Prepare = () => {
   const [startCount, setStartCount] = useState(false);
   return (
-    <div className="prepare min-h-1/2">
+    <div className="prepare">
       <Waypoint onEnter={() => setStartCount(true)} />
       {/* <div className="container prepare_content gap-3 xs:block md:flex items-start py-10 xs:max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-[1140px]"> */}
       <div className="container prepare_content gap-3 flex items-center justify-between py-8">

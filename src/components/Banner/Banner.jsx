@@ -3,7 +3,7 @@ import hero1 from "./../../assets/img/hero1.png";
 
 const Banner = () => {
   return (
-    <div className="banner pb-16">
+    <div className="banner">
       {/* <div className="container py-10 xs:max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-[1140px]"> */}
       {/* <div className="xs:block md:flex justify-between items-center gap-5"> */}
       {/* <div className="xs:full lg:w-6/12 mb-5" data-aos="fade-up"> */}

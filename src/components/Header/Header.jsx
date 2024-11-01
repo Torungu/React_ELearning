@@ -29,6 +29,7 @@ const Header = () => {
         console.log(err);
       });
   }, []);
+
   const items = [
     {
       label: (
@@ -62,6 +63,7 @@ const Header = () => {
       type: "divider",
     },
   ];
+
   const checkUserLogin = () => {
     return infoUser ? (
       <Dropdown

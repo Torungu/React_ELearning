@@ -17,27 +17,27 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <div className="">
+      <div className="space-y-10">
         {location.pathname === path.homePage && (
-          <>
+          <div className="space-y-10">
             <Banner />
             <Prepare />
             {/* <Ecourse /> */}
             {/* <WhyLearn /> */}
             <PopularCourse />
+          </div>
+        )}
+        <main className="">
+          <Outlet />
+        </main>
+        {location.pathname === path.homePage && (
+          <>
+            {/* <Discover /> */}
+            <SuccessStory />
+            {/* <LetStarted /> */}
           </>
         )}
       </div>
-      {/* <main className="min-h-screen"> */}
-      <main className="">
-        <Outlet />
-      </main>
-      {location.pathname === path.homePage && (
-        <>
-          <Discover /> <SuccessStory />
-          <LetStarted />
-        </>
-      )}
       <Footer />
     </>
   );

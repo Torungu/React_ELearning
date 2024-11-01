@@ -8,7 +8,7 @@ import popular4 from "./../../assets/img/logo-popular-courses4.png";
 
 const PopularCourse = () => {
   return (
-    <div className="popularCourse">
+    <div className="popularCourse bg-purple-100">
       {/* <div className="container gap-3 xs:block md:flex items-start py-10 xs:max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-[1140px]"> */}
       <div className="container">
         <div className="flex justify-center items-center">

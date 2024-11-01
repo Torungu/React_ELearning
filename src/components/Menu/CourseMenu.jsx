@@ -5,11 +5,14 @@ import { NavLink } from "react-router-dom";
 const CourseMenu = ({ valueDanhMuc }) => {
   const items = valueDanhMuc.map((item, index) => ({
     label: (
-      <NavLink
-        to={`/danh-muc-khoa-hoc?maDanhMuc=${item?.maDanhMuc}&ten=${item?.tenDanhMuc}&MaNhom=GP01`}
-      >
-        {item?.tenDanhMuc}
-      </NavLink>
+      <div className="">
+        <NavLink
+          to={`/danh-muc-khoa-hoc?maDanhMuc=${item?.maDanhMuc}&ten=${item?.tenDanhMuc}&MaNhom=GP01`}
+          className={`font-semibold hover:text-purple-800 duration-300`}
+        >
+          {item?.tenDanhMuc}
+        </NavLink>
+      </div>
     ),
     key: { index },
   }));
