@@ -27,11 +27,11 @@ const CourseMenu = ({ valueDanhMuc }) => {
         trigger={["click"]}
       >
         <button
-          className="py-2 px-2 bg-transparent flex items-center"
+          className="p-2 bg-transparent flex items-center"
           onClick={(e) => e.preventDefault()}
         >
           <i className="fa-solid fa-bars me-3 text-white text-md" />
-          <p className="text-white uppercase">Danh mục khóa học</p>
+          <p className="text-white uppercase">Danh mục </p>
         </button>
       </Dropdown>
     </div>

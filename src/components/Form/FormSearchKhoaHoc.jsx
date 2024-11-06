@@ -24,7 +24,7 @@ const FormSearchKhoaHoc = ({ setOpenDropdown, handleGetValueChildren }) => {
   };
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="">
         <input
           onChange={handleChange}
           className="outline-none py-2 px-4 rounded-md border-none"

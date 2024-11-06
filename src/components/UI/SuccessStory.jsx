@@ -14,9 +14,11 @@ const SuccessStory = () => {
   };
   return (
     <div className="successStory bg-purple-100">
-      <div className="container gap-3 xs:block md:flex items-start py-10 xs:max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-[1140px]">
-        <div className="xs:block md:grid grid-cols-2 gap-10 items-center mb-5">
-          <div className="left mb-5" data-aos="fade-up">
+      {/* <div className="container gap-3 xs:block md:flex items-start py-10 xs:max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-[1140px]">
+        <div className="xs:block md:grid grid-cols-2 gap-10 items-center mb-5"> */}
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 items-center">
+          <div className="left " data-aos="fade-up">
             <div className="overlay"></div>
             <img
               src={leftImg}
@@ -25,7 +27,7 @@ const SuccessStory = () => {
               data-aos="fade-up"
             />
           </div>
-          <div className="right mb-5" data-aos="fade-down">
+          <div className="right" data-aos="fade-down">
             <h2
               className="font-semibold leading-normal mb-3 text-center"
               data-aos="flip-left"
@@ -49,7 +51,13 @@ const SuccessStory = () => {
                     </p>
                     <div className="grid grid-cols-2 mx-auto gap-5">
                       <div className="carousel_img">
-                        <img width={50} height={50} src={person1} alt="err" />
+                        <img
+                          width={50}
+                          height={50}
+                          src={person1}
+                          alt="err"
+                          className="rounded-full"
+                        />
                       </div>
                       <div className="carousel_content">
                         <h3>Sulistyonohadi</h3>
@@ -67,7 +75,13 @@ const SuccessStory = () => {
                     </p>
                     <div className="grid grid-cols-2 mx-auto gap-5">
                       <div className="carousel_img">
-                        <img width={50} height={50} src={person2} alt="err" />
+                        <img
+                          width={50}
+                          height={50}
+                          src={person2}
+                          alt="err"
+                          className="rounded-full"
+                        />
                       </div>
                       <div className="carousel_content">
                         <h3>Trisnowati</h3>
@@ -85,7 +99,13 @@ const SuccessStory = () => {
                     </p>
                     <div className="grid grid-cols-2 mx-auto gap-5">
                       <div className="carousel_img">
-                        <img width={50} height={50} src={person3} alt="err" />
+                        <img
+                          width={50}
+                          height={50}
+                          src={person3}
+                          alt="err"
+                          className="rounded-full"
+                        />
                       </div>
                       <div className="carousel_content">
                         <h3>Linda Pranasari</h3>

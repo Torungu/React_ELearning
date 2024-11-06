@@ -8,15 +8,18 @@ const Prepare = () => {
     <div className="prepare">
       <Waypoint onEnter={() => setStartCount(true)} />
       {/* <div className="container prepare_content gap-3 xs:block md:flex items-start py-10 xs:max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-[1140px]"> */}
-      <div className="container prepare_content gap-3 flex items-center justify-between py-8">
+      <div className="container mx-auto prepare_content grid grid-cols-1 lg:grid-cols-2 gap-5 items-center ">
         <div className="prepare_left" data-aos="fade-up">
           <div className="title">
-            <h2 className="text-4xl">
+            <h2 className="text-xl lg:text-4xl">
               Prepare for the future, learn the right skills{" "}
             </h2>
           </div>
         </div>
-        <div className="prepare_right grid grid-cols-3" data-aos="fade-down">
+        <div
+          className="prepare_right grid grid-cols-3 justify-items-center"
+          data-aos="fade-down"
+        >
           <div className="">
             {startCount && <CountUp end={98} duration={8}></CountUp>}
             <p>Courses</p>

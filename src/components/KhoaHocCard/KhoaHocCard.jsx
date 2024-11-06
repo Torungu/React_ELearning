@@ -8,24 +8,47 @@ const KhoaHocCard = ({ item }) => {
   const handleError = (e) => {
     e.target.src = "/public/errImg.svg";
   };
+
   return (
     <>
-      <div className="item_khoaHoc">
-        <div>
-          <img src={item.hinhAnh} alt="Loading..." onError={handleError} />
+      <div className="">
+        <img
+          src={item.hinhAnh}
+          alt="Loading..."
+          onError={handleError}
+          className="h-1/2 w-full border"
+        />
+        <h2 className="font-semibold bg-purple-600 px-2 text-white">
+          {item.tenKhoaHoc}
+        </h2>
+        <div className="p-5 space-y-5 border-x">
+          <h3>
+            Nhu cầu về phát triển công nghệ đang ngày càng tăng trên thế giới
+            ...
+          </h3>
+          <div className="flex justify-start items-center gap-4">
+            <img
+              src="../../../public/Elon_Musk.jpg"
+              alt=""
+              className="w-5 rounded-full"
+            />
+            <p>Elon Musk</p>
+          </div>
         </div>
-        <h2 className="leading-8">{item.tenKhoaHoc}</h2>
-        <p className="text-[#7A7A7A] text-base"></p>
-        <div className="flex items-center justify-start mb-8">
-          <span className="text-[#E31C8D] me-4 inline-block">
-            <i className="fa-solid fa-star" />
-            <i className="fa-solid fa-star" />
-            <i className="fa-solid fa-star" />
-            <i className="fa-solid fa-star" />
-            <i className="fa-regular fa-star" />
-          </span>
+        <div className="flex justify-between items-center px-5 py-3 border">
+          <p className="text-gray-400">
+            <span className="text-yellow-500">
+              4.5 <i class="fa-solid fa-star"></i>
+            </span>{" "}
+            {"("}
+            {item.luotXem}
+            {")"}
+          </p>
+          <button className="button-pink border-transparent">
+            <Link to={`chi-tiet?maKhoaHoc=${item.maKhoaHoc}`}>ĐĂNG KÝ</Link>
+          </button>
         </div>
-        <Link to={`chi-tiet?maKhoaHoc=${item.maKhoaHoc}`}>ĐĂNG KÝ</Link>
+
         {/* <Link
           to={
             getLocalStorage("user")

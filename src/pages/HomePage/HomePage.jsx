@@ -31,11 +31,11 @@ const HomePage = () => {
           <Outlet />
         </main>
         {location.pathname === path.homePage && (
-          <>
+          <div className="">
             {/* <Discover /> */}
             <SuccessStory />
             {/* <LetStarted /> */}
-          </>
+          </div>
         )}
       </div>
       <Footer />
