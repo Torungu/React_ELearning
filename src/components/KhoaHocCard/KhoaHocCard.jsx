@@ -11,17 +11,18 @@ const KhoaHocCard = ({ item }) => {
 
   return (
     <>
-      <div className="">
+      <div className="khoa-hoc-card">
         <img
           src={item.hinhAnh}
           alt="Loading..."
           onError={handleError}
-          className="h-1/2 w-full border"
+          className="w-full sm:h-1/2 border"
         />
-        <h2 className="font-semibold bg-purple-600 px-2 text-white">
-          {item.tenKhoaHoc}
-        </h2>
-        <div className="p-5 space-y-5 border-x">
+
+        <div className="p-5 space-y-5 border-x khoa-hoc-card-content">
+          <h2 className="font-semibold bg-purple-600 px-2 text-white khoa-hoc-card-ten">
+            {item.tenKhoaHoc}
+          </h2>
           <h3>
             Nhu cầu về phát triển công nghệ đang ngày càng tăng trên thế giới
             ...

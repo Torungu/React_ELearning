@@ -1,0 +1,24 @@
+.course-menu-mobile .css-dev-only-do-not-override-1hpnbz2 {
+  .ant-menu-item-selected {
+    .ant-menu-title-content {
+      color: purple;
+    }
+  }
+  .ant-menu-submenu-active {
+    color: black;
+    .ant-menu-submenu-title {
+      color: purple;
+    }
+    a {
+      color: purple;
+      .danh-muc {
+        color: black !important;
+      }
+    }
+  }
+  .ant-menu-submenu-open {
+    .ant-menu-submenu-title {
+      color: purple;
+    }
+  }
+}

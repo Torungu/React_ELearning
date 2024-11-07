@@ -10,7 +10,6 @@ const ListKhoaHoc = () => {
       .then((res) => {
         // console.log(res.data);
         setListKhoaHoc(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -27,7 +26,7 @@ const ListKhoaHoc = () => {
         </h1>
         {/* <div className="xs:block md:grid-cols-2 md:grid lg:grid lg:grid-cols-3 gap-16 mx-auto"> */}
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5  ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {listKhoaHoc.splice(0, 8).map((item) => {
               return <KhoaHocCard item={item} key={item.maKhoaHoc} />;
             })}

@@ -11,7 +11,7 @@ const Prepare = () => {
       <div className="container mx-auto prepare_content grid grid-cols-1 lg:grid-cols-2 gap-5 items-center ">
         <div className="prepare_left" data-aos="fade-up">
           <div className="title">
-            <h2 className="text-xl lg:text-4xl">
+            <h2 className="text-xl lg:text-3xl">
               Prepare for the future, learn the right skills{" "}
             </h2>
           </div>

@@ -5,7 +5,7 @@ import FormSearchKhoaHoc from "../Form/FormSearchKhoaHoc";
 import CourseMenu from "../Menu/CourseMenu";
 import WrapperSuggestCourse from "../Wrapper/WrapperSuggestCourse";
 import MobileMenu from "../Menu/MobileMenu";
-import { Avatar, Dropdown, Drawer } from "antd";
+import { Avatar, Dropdown, Drawer, Menu } from "antd";
 import UserIcon from "../Icon/UserIcon";
 import LogOutIcon from "../Icon/LogOutIcon";
 import { path } from "../../common/path";
@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userStatus } from "../../redux/userSlice";
 import { khoaHocService } from "../../service/khoaHoc.service";
 import MobileMenuGlass from "../Menu/MobileMenuGlass";
+import CourseMenuMobile from "../Menu/CourseMenuMobile";
 
 const Header = () => {
   const { infoUser } = useSelector((state) => state.userSlice);
@@ -137,24 +138,15 @@ const Header = () => {
                     <i className="fa-solid fa-bars me-3 text-white text-md" />
                   </button>
                   <Drawer onClose={onClose} open={open}>
-                    <div className="uppercase flex flex-col items-center header_group_menu">
-                      <Link className="hover:text-purple-400 duration-300 p-2">
-                        blog
-                      </Link>
-                      <Link className="hover:text-purple-400 duration-300 p-2">
-                        sự kiện
-                      </Link>
-                      <Link className="hover:text-purple-400 duration-300 p-2">
-                        thông tin
-                      </Link>
-                      <div className="">{checkUserLogin()}</div>
+                    <div className="course-menu-mobile">
+                      <CourseMenuMobile valueDanhMuc={valueDanhMuc} />
                     </div>
                   </Drawer>
                 </div>
               </div>
             </div>
             <div className="hidden md:block">
-              <div className="uppercase text-white flex items-center header_group_menu">
+              <div className="uppercase text-white flex items-center header_group_menu md:gap-2 lg:gap-0 xl:gap-5">
                 <div className="header_item">
                   <CourseMenu valueDanhMuc={valueDanhMuc} />
                 </div>
