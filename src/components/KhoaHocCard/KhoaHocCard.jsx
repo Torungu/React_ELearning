@@ -12,13 +12,14 @@ const KhoaHocCard = ({ item }) => {
   return (
     <>
       <div className="khoa-hoc-card">
-        <img
-          src={item.hinhAnh}
-          alt="Loading..."
-          onError={handleError}
-          className="w-full sm:h-1/2 border"
-        />
-
+        <div className="w-full h-[220px] border">
+          <img
+            src={item.hinhAnh}
+            alt="Loading..."
+            onError={handleError}
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="p-5 space-y-5 border-x khoa-hoc-card-content">
           <h2 className="font-semibold bg-purple-600 px-2 text-white khoa-hoc-card-ten">
             {item.tenKhoaHoc}
@@ -46,7 +47,7 @@ const KhoaHocCard = ({ item }) => {
             {")"}
           </p>
           <button className="button-pink border-transparent">
-            <Link to={`chi-tiet?maKhoaHoc=${item.maKhoaHoc}`}>ĐĂNG KÝ</Link>
+            <Link to={`/chi-tiet?maKhoaHoc=${item?.maKhoaHoc}`}>ĐĂNG KÝ</Link>
           </button>
         </div>
 

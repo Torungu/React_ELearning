@@ -3,7 +3,6 @@ import { Menu } from "antd";
 import { Link, NavLink } from "react-router-dom";
 
 const CourseMenuMobile = ({ valueDanhMuc }) => {
-  valueDanhMuc.map((item, index) => console.log(index + 1, item.tenDanhMuc));
   const items = [
     {
       key: "sub1",
