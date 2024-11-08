@@ -21,7 +21,7 @@ import EditCourse from "../pages/EditCourse/EditCourse";
 const useRoutesCustom = () => {
   const routes = useRoutes([
     {
-      path: path.homPage,
+      path: path.homePage,
       element: <HomePage />,
       children: [
         {

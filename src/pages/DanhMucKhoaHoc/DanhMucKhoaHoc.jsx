@@ -13,11 +13,8 @@ const DanhMucKhoaHoc = () => {
       .layKhoaHocTheoDanhMuc(maDanhMuc)
       .then((res) => {
         setListKhoaHoc(res.data);
-        console.log(res.data);
       })
-      .catch((err) => {
-        // console.log(err);
-      });
+      .catch((err) => {});
   }, [searchParam.get("maDanhMuc"), searchParam.get("ten")]);
 
   return (

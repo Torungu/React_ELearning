@@ -5,42 +5,43 @@ import { khoaHocService } from "../../service/khoaHoc.service";
 import { NotificationContext } from "../../App";
 
 const ChiTietKhoaHoc = () => {
-  const { showNotification } = useContext(NotificationContext);
+  // const { showNotification } = useContext(NotificationContext);
   const [searchParam, setSearchParam] = useSearchParams();
   const [chiTietKhoaHoc, setChiTietKhoaHoc] = useState([]);
   // const [duLieuDangKy, setDuLieuDangKy] = useState({
   //   maKhoaHoc: "",
   //   taiKhoan: "",
   // });
-  let maKhoaHoc = searchParam.get("maKhoaHoc");
-  let taiKhoan = getLocalStorage("user").taiKhoan;
-  let token = getLocalStorage("user").accessToken;
-  let duLieuDangKy = { maKhoaHoc, taiKhoan };
+  // let maKhoaHoc = searchParam.get("maKhoaHoc");
+  // let taiKhoan = getLocalStorage("user").taiKhoan;
+  // let token = getLocalStorage("user").accessToken;
+  // let duLieuDangKy = { maKhoaHoc, taiKhoan };
   const navigate = useNavigate();
-  const handleSignUpCourse = () => {
-    // let maKhoaHoc = searchParam.get("maKhoaHoc");
-    // let taiKhoan = getLocalStorage("user").taiKhoan;
-    // let token = getLocalStorage("user").accessToken;
-    // setDuLieuDangKy({
-    //   maKhoaHoc,
-    //   taiKhoan,
-    // });
-    khoaHocService
-      .dangKyKhoaHocUser(token, duLieuDangKy)
-      .then((res) => {
-        showNotification(
-          "Đăng ký thành công, vui lòng kiểm tra thông tin khóa đã đăng ký",
-          "success"
-        );
-        navigate("/user-info");
-      })
-      .catch((err) => {
-        showNotification(err.response.data, "error");
-      });
-  };
+  // const handleSignUpCourse = () => {
+  //   let maKhoaHoc = searchParam.get("maKhoaHoc");
+  //   let taiKhoan = getLocalStorage("user").taiKhoan;
+  //   let token = getLocalStorage("user").accessToken;
+  //   setDuLieuDangKy({
+  //     maKhoaHoc,
+  //     taiKhoan,
+  //   });
+  //   khoaHocService
+  //     .dangKyKhoaHocUser(token, duLieuDangKy)
+  //     .then((res) => {
+  //       showNotification(
+  //         "Đăng ký thành công, vui lòng kiểm tra thông tin khóa đã đăng ký",
+  //         "success"
+  //       );
+  //       navigate("/user-info");
+  //     })
+  //     .catch((err) => {
+  //       showNotification(err.response.data, "error");
+  //     });
+  // };
 
   useEffect(() => {
     let maKhoaHoc = searchParam.get("maKhoaHoc");
+    console.log(maKhoaHoc);
     khoaHocService
       .layChiTietKhoaHocTheoMa(maKhoaHoc)
       .then((res) => {
