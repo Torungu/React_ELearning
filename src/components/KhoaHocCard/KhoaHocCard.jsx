@@ -11,7 +11,10 @@ const KhoaHocCard = ({ item }) => {
 
   return (
     <>
-      <div className="khoa-hoc-card">
+      <Link
+        to={`/chi-tiet?maKhoaHoc=${item?.maKhoaHoc}`}
+        className="khoa-hoc-card cursor-pointer"
+      >
         <div className="w-full h-[220px] border">
           <img
             src={item.hinhAnh}
@@ -50,7 +53,6 @@ const KhoaHocCard = ({ item }) => {
             <Link to={`/chi-tiet?maKhoaHoc=${item?.maKhoaHoc}`}>ĐĂNG KÝ</Link>
           </button>
         </div>
-
         {/* <Link
           to={
             getLocalStorage("user")
@@ -60,7 +62,7 @@ const KhoaHocCard = ({ item }) => {
         >
           ĐĂNG KÝ
         </Link> */}
-      </div>
+      </Link>
     </>
   );
 };
