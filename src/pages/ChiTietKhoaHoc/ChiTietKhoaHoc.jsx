@@ -7,7 +7,6 @@ import { Menu, Rate } from "antd";
 import ShowMoreLess from "../../components/ShowMoreLess/ShowMoreLess";
 import { LoremIpsum } from "lorem-ipsum";
 import KhoaHocCard from "../../components/KhoaHocCard/KhoaHocCard";
-import Sticky from "react-stickynode";
 
 const ChiTietKhoaHoc = () => {
   // const { showNotification } = useContext(NotificationContext);
@@ -284,9 +283,9 @@ const ChiTietKhoaHoc = () => {
   // console.log(chiTietKhoaHoc.danhMucKhoaHoc?.maDanhMucKhoahoc);
   return (
     <>
-      <div className="space-y-8 py-5 chi-tiet">
+      <div className="space-y-8 py-5 ">
         <div className="bg-purple-100 pt-28 pb-5">
-          <div className="container mx-auto space-y-3">
+          <div className="container mx-auto space-y-3 ">
             <h1 className="text-3xl font-semibold ">
               {chiTietKhoaHoc?.tenKhoaHoc}
             </h1>
@@ -296,7 +295,7 @@ const ChiTietKhoaHoc = () => {
                   <img
                     src="../../../public/Elon_Musk.jpg"
                     alt=""
-                    className="w-8 rounded-full"
+                    className="w-10 h-10 rounded-full object-cover object-top"
                   />
                   <div className="flex flex-col">
                     <h4 className="text-purple-400">Người tạo</h4>
@@ -326,7 +325,7 @@ const ChiTietKhoaHoc = () => {
             </div>
           </div>
         </div>
-        <div className="container mx-auto grid grid-cols-12 gap-5 ">
+        <div className="container mx-auto grid grid-cols-12 gap-5">
           <div className="col-span-8 space-y-5 ">
             <div className="border p-5 space-y-5 ">
               <h1 className="text-xl font-semibold">Những gì bạn sẽ học</h1>
@@ -395,6 +394,45 @@ const ChiTietKhoaHoc = () => {
                 tenKhoaHoc={chiTietKhoaHoc?.tenKhoaHoc}
               />
             </div>
+            <div className="space-y-5">
+              <h1 className="text-xl font-semibold">Giảng viên</h1>
+              <div>
+                <h2 className="text-purple-800 font-bold underline">
+                  {chiTietKhoaHoc?.nguoiTao?.hoTen}
+                </h2>
+                <h3 className="text-gray-400">Software Engineer</h3>
+              </div>
+              <div className="flex items-center gap-10">
+                <img
+                  src="../../../public/Elon_Musk.jpg"
+                  alt=""
+                  className="w-28 h-28 rounded-full object-cover object-top"
+                />
+                <ul className="space-y-1">
+                  <li className="grid grid-cols-10 items-center gap-3">
+                    <i className="fa-solid fa-star col-span-1 text-purple-700"></i>
+                    <span className="col-span-9">4.5 Đánh giá</span>
+                  </li>
+                  <li className="grid grid-cols-10 items-center gap-3">
+                    <i className="fa-solid fa-medal cols-span-1 text-purple-700"></i>
+                    <span className="col-span-9">367 Lượt xem</span>
+                  </li>
+                  <li className="grid grid-cols-10 items-center gap-3">
+                    <i className="fa-solid fa-user-group cols-span-1 text-purple-700"></i>
+                    <span className="col-span-9">1780 Học viên</span>
+                  </li>
+                  <li className="grid grid-cols-10 items-center gap-3">
+                    <i className="fa-solid fa-circle-play cols-span-1 text-purple-700"></i>
+                    <span className="col-span-9">4 Khóa học</span>
+                  </li>
+                </ul>
+              </div>
+              <ShowMoreLess
+                text={lorem.generateWords(100)}
+                tenGV={chiTietKhoaHoc?.nguoiTao?.hoTen}
+                tenKhoaHoc={chiTietKhoaHoc?.tenKhoaHoc}
+              />
+            </div>
             <div className="flex items-center gap-2 text-xl">
               <i className="fa-solid fa-star text-yellow-400"></i>
               <p className="font-bold">4.3 Đánh giá</p>
@@ -402,162 +440,84 @@ const ChiTietKhoaHoc = () => {
               <p className="font-bold">{chiTietKhoaHoc?.luotXem} Lượt xem</p>
             </div>
           </div>
-          <div className="border p-5 col-span-4 space-y-5 bg-white h-fit">
-            <img src={chiTietKhoaHoc?.hinhAnh} alt="err" className="w-full" />
-            <div className="space-y-1">
-              <div className="flex gap-8 items-center">
-                <div className="relative inline-block">
-                  <span className="absolute top-[-28%] right-[-10%] text-lg font-semibold">
-                    ₫
-                  </span>
-                  <span className="text-xl font-semibold">1.800.000</span>
-                </div>
-                <div className="relative inline-block line-through text-gray-500">
-                  <span className="absolute top-[-28%] right-[-10%]">₫</span>
-                  <span className="">3.000.000</span>
-                </div>
-              </div>
-              <p className="text-red-600">
-                <i className="fa-regular fa-clock"></i> 8 hours left to get up
-                to 60% off
-              </p>
-            </div>
-            <button
-              className="button-pink border-transparent w-full font-bold"
-              onClick={() => {
-                getLocalStorage("user")
-                  ? handleSignUpCourse()
-                  : navigate("/login");
-              }}
-            >
-              ĐĂNG KÝ
-            </button>
-            <div className="border-y py-4">
-              <p className="font-bold text-xl mb-2">Khóa học gồm :</p>
-              <ul className="space-y-2 text-[0.9rem] text-gray-700">
-                <li className="grid grid-cols-10 items-center">
-                  <i className="fa-solid fa-film col-span-1 text-center"></i>
-                  <span className="col-span-9">25 Video theo yêu cầu</span>
-                </li>
-                <li className="grid grid-cols-10 items-center">
-                  <i className="fa-regular fa-circle-question col-span-1 text-center"></i>
-                  <span className="col-span-9">4 Bài kiểm tra thực hành</span>
-                </li>
-                <li className="grid grid-cols-10 items-center">
-                  <i className="fa-regular fa-file col-span-1 text-center"></i>
-                  <span className="col-span-9">8 Bài viết</span>
-                </li>
-                <li className="grid grid-cols-10 items-center">
-                  <i className="fa-solid fa-file-arrow-down col-span-1 text-center"></i>
-                  <span className="col-span-9">6 Tài nguyên</span>
-                </li>
-                <li className="grid grid-cols-10 items-center">
-                  <i className="fa-solid fa-infinity col-span-1 text-center"></i>
-                  <span className="col-span-9">Quyền truy cập trọn đời</span>
-                </li>
-                <li className="grid grid-cols-10 items-center">
-                  <i className="fa-solid fa-trophy col-span-1 text-center"></i>
-                  <span className="col-span-9">Giấy chứng nhận</span>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-2">
-              <p className="text-green-600 font-semibold">
-                <i className="fa-solid fa-tags"></i> Mã coupon khuyến mãi
-              </p>
-              <input
-                type="text"
-                placeholder="Nhập mã"
-                className="border-green-600 border w-full p-2 outline-none text-green-600 placeholder-green-500"
+          <div className="col-span-4">
+            <div className="border w-full p-5 space-y-5 bg-white h-fit sticky top-[20%]">
+              <img
+                src={chiTietKhoaHoc?.hinhAnh}
+                alt="err"
+                className="w-full h-[150px] object-cover border rounde"
               />
+              <div className="space-y-1">
+                <div className="flex gap-8 items-center">
+                  <div className="relative inline-block">
+                    <span className="absolute top-[-28%] right-[-10%] text-lg font-semibold">
+                      ₫
+                    </span>
+                    <span className="text-xl font-semibold">1.800.000</span>
+                  </div>
+                  <div className="relative inline-block line-through text-gray-500">
+                    <span className="absolute top-[-28%] right-[-10%]">₫</span>
+                    <span className="">3.000.000</span>
+                  </div>
+                </div>
+                <p className="text-red-600">
+                  <i className="fa-regular fa-clock"></i> 8 hours left to get up
+                  to 60% off
+                </p>
+              </div>
+              <button
+                className="button-pink border-transparent w-full font-bold"
+                onClick={() => {
+                  getLocalStorage("user")
+                    ? handleSignUpCourse()
+                    : navigate("/login");
+                }}
+              >
+                ĐĂNG KÝ
+              </button>
+              <div className="border-y py-4">
+                <p className="font-bold text-xl mb-2">Khóa học gồm :</p>
+                <ul className="space-y-2 text-[0.9rem] text-gray-700">
+                  <li className="grid grid-cols-10 items-center">
+                    <i className="fa-solid fa-film col-span-1 text-center"></i>
+                    <span className="col-span-9">25 Video theo yêu cầu</span>
+                  </li>
+                  <li className="grid grid-cols-10 items-center">
+                    <i className="fa-regular fa-circle-question col-span-1 text-center"></i>
+                    <span className="col-span-9">4 Bài kiểm tra thực hành</span>
+                  </li>
+                  <li className="grid grid-cols-10 items-center">
+                    <i className="fa-regular fa-file col-span-1 text-center"></i>
+                    <span className="col-span-9">8 Bài viết</span>
+                  </li>
+                  <li className="grid grid-cols-10 items-center">
+                    <i className="fa-solid fa-file-arrow-down col-span-1 text-center"></i>
+                    <span className="col-span-9">6 Tài nguyên</span>
+                  </li>
+                  <li className="grid grid-cols-10 items-center">
+                    <i className="fa-solid fa-infinity col-span-1 text-center"></i>
+                    <span className="col-span-9">Quyền truy cập trọn đời</span>
+                  </li>
+                  <li className="grid grid-cols-10 items-center">
+                    <i className="fa-solid fa-trophy col-span-1 text-center"></i>
+                    <span className="col-span-9">Giấy chứng nhận</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="space-y-2">
+                <p className="text-green-600 font-semibold">
+                  <i className="fa-solid fa-tags"></i> Mã coupon khuyến mãi
+                </p>
+                <input
+                  type="text"
+                  placeholder="Nhập mã"
+                  className="border-green-600 border w-full p-2 outline-none text-green-600 placeholder-green-500"
+                />
+              </div>
             </div>
           </div>
-          {/* <div className="col-span-4 w-[30%] absolute right-0 top-[-18%]">
-            <Sticky top={0} bottomBoundary={".chi-tiet-danh-gia"}>
-              <div className="border p-5 space-y-5 bg-white h-fit">
-                <img
-                  src={chiTietKhoaHoc?.hinhAnh}
-                  alt="err"
-                  className="w-full"
-                />
-                <div className="space-y-1">
-                  <div className="flex gap-8 items-center">
-                    <div className="relative inline-block">
-                      <span className="absolute top-[-28%] right-[-10%] text-lg font-semibold">
-                        ₫
-                      </span>
-                      <span className="text-xl font-semibold">1.800.000</span>
-                    </div>
-                    <div className="relative inline-block line-through text-gray-500">
-                      <span className="absolute top-[-28%] right-[-10%]">
-                        ₫
-                      </span>
-                      <span className="">3.000.000</span>
-                    </div>
-                  </div>
-                  <p className="text-red-600">
-                    <i className="fa-regular fa-clock"></i> 8 hours left to get
-                    up to 60% off
-                  </p>
-                </div>
-                <button
-                  className="button-pink border-transparent w-full font-bold"
-                  onClick={() => {
-                    getLocalStorage("user")
-                      ? handleSignUpCourse()
-                      : navigate("/login");
-                  }}
-                >
-                  ĐĂNG KÝ
-                </button>
-                <div className="border-y py-4">
-                  <p className="font-bold text-xl mb-2">Khóa học gồm :</p>
-                  <ul className="space-y-2 text-[0.9rem] text-gray-700">
-                    <li className="grid grid-cols-10 items-center">
-                      <i className="fa-solid fa-film col-span-1 text-center"></i>
-                      <span className="col-span-9">25 Video theo yêu cầu</span>
-                    </li>
-                    <li className="grid grid-cols-10 items-center">
-                      <i className="fa-regular fa-circle-question col-span-1 text-center"></i>
-                      <span className="col-span-9">
-                        4 Bài kiểm tra thực hành
-                      </span>
-                    </li>
-                    <li className="grid grid-cols-10 items-center">
-                      <i className="fa-regular fa-file col-span-1 text-center"></i>
-                      <span className="col-span-9">8 Bài viết</span>
-                    </li>
-                    <li className="grid grid-cols-10 items-center">
-                      <i className="fa-solid fa-file-arrow-down col-span-1 text-center"></i>
-                      <span className="col-span-9">6 Tài nguyên</span>
-                    </li>
-                    <li className="grid grid-cols-10 items-center">
-                      <i className="fa-solid fa-infinity col-span-1 text-center"></i>
-                      <span className="col-span-9">
-                        Quyền truy cập trọn đời
-                      </span>
-                    </li>
-                    <li className="grid grid-cols-10 items-center">
-                      <i className="fa-solid fa-trophy col-span-1 text-center"></i>
-                      <span className="col-span-9">Giấy chứng nhận</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-green-600 font-semibold">
-                    <i className="fa-solid fa-tags"></i> Mã coupon khuyến mãi
-                  </p>
-                  <input
-                    type="text"
-                    placeholder="Nhập mã"
-                    className="border-green-600 border w-full p-2 outline-none text-green-600 placeholder-green-500"
-                  />
-                </div>
-              </div>
-            </Sticky>
-          </div> */}
         </div>
-        <div className="container mx-auto space-y-5">
+        <div className="container mx-auto space-y-5 ">
           <h1 className="text-xl font-semibold">
             Các khóa học {chiTietKhoaHoc?.danhMucKhoaHoc?.tenDanhMucKhoaHoc}{" "}
             khác
