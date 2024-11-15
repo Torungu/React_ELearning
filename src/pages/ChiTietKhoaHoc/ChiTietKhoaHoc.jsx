@@ -73,10 +73,12 @@ const ChiTietKhoaHoc = () => {
         {
           key: "1",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
-              <i className="fa-regular fa-file text-center col-span-1"></i>
-              <p className="col-span-10">Lesson 1</p>
-              <div className="flex items-center gap-1 font-semibold col-span-1">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
+              <i className="fa-regular fa-file text-center"></i>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">
+                Lesson 1
+              </p>
+              <div className="flex items-center gap-1 font-semibold">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">00:07</p>
               </div>
@@ -86,9 +88,11 @@ const ChiTietKhoaHoc = () => {
         {
           key: "2",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-regular fa-file text-center col-span-1"></i>
-              <p className="col-span-10">Lesson 2</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">
+                Lesson 2
+              </p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">00:14</p>
@@ -99,9 +103,9 @@ const ChiTietKhoaHoc = () => {
         {
           key: "3",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-solid fa-film col-span-1 text-center"></i>
-              <p className="col-span-10">Video 1</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">Video 1</p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">12:30</p>
@@ -112,9 +116,9 @@ const ChiTietKhoaHoc = () => {
         {
           key: "4",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-solid fa-film col-span-1 text-center"></i>
-              <p className="col-span-10">Video 2</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">Video 2</p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">24:50</p>
@@ -125,9 +129,9 @@ const ChiTietKhoaHoc = () => {
         {
           key: "5",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-solid fa-film col-span-1 text-center"></i>
-              <p className="col-span-10">Video 3</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">Video 3</p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">35:25</p>
@@ -151,9 +155,11 @@ const ChiTietKhoaHoc = () => {
         {
           key: "6",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-regular fa-file text-center col-span-1"></i>
-              <p className="col-span-10">Lesson 3</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">
+                Lesson 3
+              </p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">00:07</p>
@@ -164,9 +170,9 @@ const ChiTietKhoaHoc = () => {
         {
           key: "7",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-regular fa-circle-question col-span-1 text-center"></i>
-              <p className="col-span-10">Test 1</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">Test 1</p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">00:14</p>
@@ -177,9 +183,9 @@ const ChiTietKhoaHoc = () => {
         {
           key: "8",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-solid fa-film col-span-1 text-center"></i>
-              <p className="col-span-10">Video 4</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">Video 4</p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">12:30</p>
@@ -190,9 +196,9 @@ const ChiTietKhoaHoc = () => {
         {
           key: "9",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-regular fa-circle-question col-span-1 text-center"></i>
-              <p className="col-span-10">Test 2</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">Test 2</p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">24:50</p>
@@ -216,9 +222,11 @@ const ChiTietKhoaHoc = () => {
         {
           key: "10",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-regular fa-file text-center col-span-1"></i>
-              <p className="col-span-10">Lesson 4</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">
+                Lesson 4
+              </p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">00:07</p>
@@ -229,9 +237,9 @@ const ChiTietKhoaHoc = () => {
         {
           key: "11",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-solid fa-film col-span-1 text-center"></i>
-              <p className="col-span-10">Video 5</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">Video 5</p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">24:14</p>
@@ -242,9 +250,9 @@ const ChiTietKhoaHoc = () => {
         {
           key: "12",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-solid fa-film col-span-1 text-center"></i>
-              <p className="col-span-10">Video 6</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">Video 6</p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">12:30</p>
@@ -255,9 +263,9 @@ const ChiTietKhoaHoc = () => {
         {
           key: "13",
           label: (
-            <div className="grid grid-cols-12 items-center border-b-2 w-full">
+            <div className="grid grid-cols-6 md:grid-cols-8 xl:grid-cols-12 items-center border-b-2 w-full">
               <i className="fa-regular fa-circle-question col-span-1 text-center"></i>
-              <p className="col-span-10">Test 3</p>
+              <p className="col-span-4 md:col-span-6 xl:col-span-10">Test 3</p>
               <div className="flex items-center gap-1 font-semibold col-span-1">
                 <i class="fa-solid fa-clock text-purple-500"></i>
                 <p className="">10:00</p>
@@ -285,8 +293,8 @@ const ChiTietKhoaHoc = () => {
     <>
       <div className="space-y-8 py-5 ">
         <div className="bg-purple-100 pt-28 pb-5">
-          <div className="container mx-auto space-y-3 ">
-            <h1 className="text-3xl font-semibold ">
+          <div className="container min-w-max sm:mx-auto space-y-3 ">
+            <h1 className="text-xl sm:text-3xl font-semibold ">
               {chiTietKhoaHoc?.tenKhoaHoc}
             </h1>
             <div className="flex items-center gap-16">
@@ -325,8 +333,8 @@ const ChiTietKhoaHoc = () => {
             </div>
           </div>
         </div>
-        <div className="container mx-auto grid grid-cols-12 gap-5">
-          <div className="col-span-8 space-y-5 ">
+        <div className="container min-w-full lg:min-w-0 sm:mx-auto grid grid-cols-1 sm:grid-cols-12 gap-5">
+          <div className="sm:col-span-8 space-y-5 ">
             <div className="border p-5 space-y-5 ">
               <h1 className="text-xl font-semibold">Những gì bạn sẽ học</h1>
               <ul className="grid grid-cols-2 grid-rows-3 gap-x-6 gap-y-4">
@@ -440,12 +448,12 @@ const ChiTietKhoaHoc = () => {
               <p className="font-bold">{chiTietKhoaHoc?.luotXem} Lượt xem</p>
             </div>
           </div>
-          <div className="col-span-4">
-            <div className="border w-full p-5 space-y-5 bg-white h-fit sticky top-[20%]">
+          <div className="sm:col-span-4">
+            <div className="sm:border w-full p-5 space-y-5 bg-white h-fit sm:sticky md:top-[8%] xl:top-[18%] 2xl:top-[20%]">
               <img
                 src={chiTietKhoaHoc?.hinhAnh}
                 alt="err"
-                className="w-full h-[150px] object-cover border rounde"
+                className="w-full h-[180px] object-cover border object-top"
               />
               <div className="space-y-1">
                 <div className="flex gap-8 items-center">
@@ -504,7 +512,7 @@ const ChiTietKhoaHoc = () => {
                   </li>
                 </ul>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 border-b pb-8 sm:border-b-0 sm:pb-0">
                 <p className="text-green-600 font-semibold">
                   <i className="fa-solid fa-tags"></i> Mã coupon khuyến mãi
                 </p>

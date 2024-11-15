@@ -12,6 +12,7 @@ const DanhMucKhoaHoc = () => {
     khoaHocService
       .layKhoaHocTheoDanhMuc(maDanhMuc)
       .then((res) => {
+        console.log(res.data);
         setListKhoaHoc(res.data);
       })
       .catch((err) => {});
