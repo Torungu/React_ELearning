@@ -1,3 +1,66 @@
 .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
   background: #a855f7;
 }
+.slick-slider.slick-initialized {
+  position: relative;
+  .slick-list {
+    a {
+      &:hover {
+        color: black;
+      }
+    }
+    .slick-track {
+      .slick-slide {
+        padding: 0 15px;
+      }
+      .card-slider {
+        position: relative;
+        .card-note {
+          position: absolute;
+          top: 2%;
+          left: -2%;
+          width: 80px;
+          &.clip-triangle {
+            clip-path: polygon(100% 0, 90% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+          }
+        }
+      }
+    }
+  }
+  button {
+    position: absolute;
+    &.slick-arrow {
+      &.slick-prev {
+        right: 0;
+        &::before {
+          color: black;
+          font-size: 30px;
+          opacity: 1;
+        }
+      }
+      &.slick-next {
+        right: -1%;
+
+        &::before {
+          color: black;
+          font-size: 30px;
+        }
+      }
+      &.slick-disabled::before {
+        color: transparent;
+        cursor: default;
+      }
+    }
+  }
+
+  .khoa-hoc-card {
+    .khoa-hoc-card-content {
+      border: none;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .card-dang-ky {
+      display: none;
+    }
+  }
+}
