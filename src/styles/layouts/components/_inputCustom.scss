@@ -1,0 +1,19 @@
+.input-custom {
+  position: relative;
+  label {
+    position: absolute;
+    top: 0;
+    left: 2%;
+    pointer-events: none;
+    transform: translateY(50%);
+    transition: all 0.3s ease;
+  }
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
+    color: purple;
+    pointer-events: all;
+    background-color: white;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+}
