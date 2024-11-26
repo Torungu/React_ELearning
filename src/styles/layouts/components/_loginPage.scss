@@ -1,9 +1,3 @@
-// .login-left {
-//   transform: translateX(100%);
-// }
-// .login-right {
-//   transform: translateX(-100%);
-// }
 .login-page {
   position: relative;
   z-index: 0;
@@ -33,5 +27,53 @@
   }
   .login-overlay-right {
     visibility: visible;
+    transition: all 1s ease;
+  }
+  .login-left {
+    visibility: visible;
+    transition: all 1s ease;
+  }
+}
+
+.login-page.nonactive {
+  .login-left {
+    transform: translateX(100%);
+    transition: all 1s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .login-overlay-right {
+    transform: translateX(-100%);
+    transition: all 1s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .login-overlay-left {
+    transition: all 1s ease;
+  }
+  .login-right {
+    transition: all 1s ease;
+  }
+}
+//login-mobile
+.login-mobile.nonactive {
+  .login-mobile-left {
+    color: white;
+    background-color: #6b21a8;
+  }
+  .login-mobile-right {
+    background-color: white;
+    color: #6b21a8;
+  }
+}
+
+.login-mobile.active {
+  .login-mobile-left {
+    background-color: white;
+    color: #6b21a8;
+  }
+  .login-mobile-right {
+    color: white;
+    background-color: #6b21a8;
   }
 }
