@@ -15,7 +15,7 @@
 .login-page.active {
   .login-right {
     transform: translateX(-100%);
-    transition: all 1s ease;
+    transition: all 0.8s ease;
     opacity: 0;
     pointer-events: none;
   }
@@ -38,7 +38,7 @@
 .login-page.nonactive {
   .login-left {
     transform: translateX(100%);
-    transition: all 1s ease;
+    transition: all 0.8s ease;
     opacity: 0;
     pointer-events: none;
   }
@@ -56,24 +56,66 @@
   }
 }
 //login-mobile
+.login-mobile {
+  position: relative;
+  .login-mobile-overlay {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+  // ~ .login-mobile-content {
+  //   position: relative;
+  //   .login-dang-ky {
+  //     position: absolute;
+  //     top: 0;
+  //     opacity: 0;
+  //     pointer-events: none;
+  //   }
+  // }
+}
+
 .login-mobile.nonactive {
   .login-mobile-left {
     color: white;
-    background-color: #6b21a8;
+    transition: all 1.3s ease;
   }
   .login-mobile-right {
-    background-color: white;
     color: #6b21a8;
+    transition: all 1s ease;
+  }
+  .login-mobile-overlay {
+    transform: translateX(0);
+    transition: all 1s ease;
+  }
+  ~ .login-mobile-content {
+    .login-dang-nhap {
+      display: block;
+    }
+    .login-dang-ky {
+      display: none;
+    }
   }
 }
 
 .login-mobile.active {
   .login-mobile-left {
-    background-color: white;
     color: #6b21a8;
+    transition: all 1s ease;
   }
   .login-mobile-right {
     color: white;
-    background-color: #6b21a8;
+    transition: all 1.3s ease;
+  }
+  .login-mobile-overlay {
+    transform: translateX(100%);
+    transition: all 1s ease;
+  }
+  ~ .login-mobile-content {
+    .login-dang-nhap {
+      display: none;
+    }
+    .login-dang-ky {
+      display: block;
+    }
   }
 }

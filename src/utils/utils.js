@@ -1,3 +1,5 @@
+import * as yup from "yup";
+
 export function setLocalStorage(key, value) {
   const stringJSON = JSON.stringify(value);
   localStorage.setItem(key, stringJSON);
@@ -46,4 +48,40 @@ export function truncateText(text, maxLength = 100) {
   return text.slice(0, maxLength) + "...";
 }
 
-export default { removeVietnameseTones };
+const validationForm1 = yup.object({
+  taiKhoan: yup.string().required("(*) Xin nhập tài khoản"),
+  matKhau: yup.string().required("(*) Xin nhập mật khẩu"),
+});
+
+const validationForm2 = yup.object({
+  taiKhoan: yup.string().required("(*) Xin nhập dữ liệu"),
+  matKhau: yup
+    .string()
+    .min(8, "(*) Mật khẩu ít nhất 8 ký tự")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])$/,
+      "(*) Mật khẩu ít nhất 1 chữ hoa, 1 chữ thường, 1 ký tự đặc biệt và 1 chữ số"
+    )
+    .required("(*) Xin nhập mật khẩu"),
+  checkMatKhau: yup
+    .string()
+    .oneOf([yup.ref("matKhau"), null], "(*) Mật khẩu xác nhận không khớp")
+    .required("(*) Mật khẩu cần xác nhận"),
+  hoTen: yup
+    .string()
+    .matches(/^[A-Za-z\s]+$/, "(*) Xin nhập Họ và Tên")
+    .required("(*) Xin nhập họ tên"),
+  email: yup
+    .string()
+    .matches(
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+      "(*) Xin nhập đúng định dạng email"
+    )
+    .required("(*) Xin nhập email"),
+  phone: yup
+    .string()
+    .matches(/^(\+84|084|0)[1-9][0-9]{8}$/, "(*) Xin nhập SĐT Việt Nam")
+    .required("(*) Xin nhập số điện thoại"),
+});
+
+export default { validationForm1, validationForm2, removeVietnameseTones };

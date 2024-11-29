@@ -16,4 +16,9 @@
     transform: translateY(-50%);
     transition: all 0.3s ease;
   }
+  p {
+    position: absolute;
+    bottom: -6%;
+    left: 1%;
+  }
 }
