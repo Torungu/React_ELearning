@@ -14,55 +14,14 @@ import Footer from "../../components/Footer/Footer";
 import { useDispatch } from "react-redux";
 import { userStatus } from "../../redux/userSlice";
 import SignIn from "../../components/SignIn/SignIn";
+import SignUp from "../../components/SignUp/SignUp";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [status, setStatus] = useState("nonactive");
   const [change, setChange] = useState("nonactive");
   const { showNotification } = useContext(NotificationContext);
-  const signInRef = useRef();
-
-  //formik-sign-in
-  const { values, handleChange, handleSubmit, touched, errors, resetForm } =
-    useFormik({
-      initialValues: {
-        taiKhoan: "",
-        matKhau: "",
-      },
-      onSubmit: (values) => {
-        authService
-          .signIn(values)
-          .then((res) => {
-            if (res.data.maLoaiNguoiDung == "HV") {
-              showNotification(`Chào mừng học viên ${res.data.hoTen}`, "info");
-              setLocalStorage("user", { ...res.data, matKhau: values.matKhau });
-              dispatch(userStatus(res.data));
-              setTimeout(() => {
-                navigate(path.homePage);
-              }, 1000);
-            }
-            if (res.data.maLoaiNguoiDung == "GV") {
-              showNotification(`Chào mừng giáo vụ ${res.data.hoTen}`, "info");
-              setLocalStorage("admin", {
-                ...res.data,
-                matKhau: values.matKhau,
-              });
-              dispatch(userStatus(res.data));
-              setTimeout(() => {
-                navigate(path.manageUser);
-              }, 1000);
-            }
-          })
-          .catch((err) => {
-            showNotification("Sai mật khẩu hoặc tài khoản", "error");
-          })
-          .finally(() => {
-            resetForm();
-          });
-      },
-      validationSchema: utils.validationForm1,
-    });
+  const signInRef = useRef(null);
+  const signUpRef = useRef(null);
 
   return (
     <>
@@ -72,86 +31,10 @@ const LoginPage = () => {
           <div className={`login-page ${status}`}>
             <div className="grid grid-cols-10 gap-5 border p-10 rounded-md">
               <div className="flex flex-col justify-center space-y-5 col-span-5 login-left">
-                <h2 className="text-3xl font-bold text-purple-800 underline uppercase text-center">
-                  Đăng ký
-                </h2>
-                <form className="space-y-5" onSubmit={handleSubmit}>
-                  <InputCustom
-                    // id={"taiKhoan"}
-                    name={"taiKhoan"}
-                    labelContent={"Tài khoản"}
-                    typeInput="text"
-                    value={values.taiKhoan}
-                    onChange={handleChange}
-                  />
-                  <InputCustom
-                    // id={"matKhau"}
-                    name={"matKhau"}
-                    labelContent={"Mật khẩu"}
-                    typeInput="password"
-                    onChange={handleChange}
-                    value={values.matKhau}
-                  />
-                  <InputCustom
-                    id={"checkMatKhau"}
-                    name={"checkMatKhau"}
-                    labelContent={"Xác nhận lại mật khẩu"}
-                    typeInput="password"
-                    onChange={handleChange}
-                    value={values.checkMatKhau}
-                  />
-                  <InputCustom
-                    id={"hoTen"}
-                    name={"hoTen"}
-                    labelContent={"Họ và Tên"}
-                    typeInput="text"
-                    onChange={handleChange}
-                    value={values.hoTen}
-                  />
-                  <InputCustom
-                    id={"email"}
-                    name={"email"}
-                    labelContent={"Email"}
-                    typeInput="text"
-                    onChange={handleChange}
-                    value={values.email}
-                  />
-                  <InputCustom
-                    id={"soDT"}
-                    name={"soDT"}
-                    labelContent={"Số Điện Thoại"}
-                    onChange={handleChange}
-                    value={values.soDT}
-                  />
-                  <div className="flex items-center text-gray-500">
-                    <p className="text-sm">
-                      Khi đăng ký bạn chấp nhận các{" "}
-                      <a
-                        href="#"
-                        className="text-purple-500 underline font-semibold"
-                      >
-                        Điều khoản
-                      </a>{" "}
-                      và{" "}
-                      <a
-                        href="#"
-                        className="text-purple-500 underline font-semibold"
-                      >
-                        Chính sách
-                      </a>{" "}
-                      của chúng tôi
-                    </p>
-                  </div>
-                  <button
-                    type="submit"
-                    className="px-5 py-3 rounded-md button-left text-center border-transparent active:scale-90"
-                  >
-                    Đăng ký
-                  </button>
-                </form>
+                <SignUp ref={signUpRef} />
               </div>
               <div className="flex flex-col justify-between space-y-5 col-span-5 login-right">
-                <SignIn resetForm={resetForm} ref={signInRef} />
+                <SignIn ref={signInRef} />
               </div>
             </div>
             <div className="grid grid-cols-10 gap-5 p-10 rounded-md login-overlay h-full">
@@ -190,7 +73,9 @@ const LoginPage = () => {
                   className="x-5 py-3 rounded-md button-left text-center border-transparent active:scale-90"
                   onClick={() => {
                     setStatus("nonactive");
-                    resetForm();
+                    if (signUpRef.current) {
+                      signUpRef.current.resetForm();
+                    }
                   }}
                 >
                   Đăng nhập ?

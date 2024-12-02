@@ -1,56 +1,50 @@
-import React, { forwardRef, useImperativeHandle } from "react";
+import React, { forwardRef, useContext, useImperativeHandle } from "react";
 import InputCustom from "../Input/InputCustom";
+import { NotificationContext } from "../../App";
 import { authService } from "../../service/auth.service";
-import { userStatus } from "../../redux/userSlice";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { path } from "../../common/path";
 import { useFormik } from "formik";
 import utils, { setLocalStorage } from "../../utils/utils";
 
-const SignUp = () => {
+const SignUp = forwardRef((props, ref) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const { showNotification } = useContext(NotificationContext);
   const { values, handleChange, handleSubmit, touched, errors, resetForm } =
     useFormik({
       initialValues: {
         taiKhoan: "",
         matKhau: "",
         checkMatKhau: "",
+        hoTen: "",
+        email: "",
+        soDT: "",
+        maNhom: "GP01",
       },
       onSubmit: (values) => {
+        const { checkMatKhau, ...submitValues } = values;
         authService
-          .signIn(values)
+          .signUp(submitValues)
           .then((res) => {
-            if (res.data.maLoaiNguoiDung == "HV") {
-              showNotification(`Chào mừng học viên ${res.data.hoTen}`, "info");
-              setLocalStorage("user", { ...res.data, matKhau: values.matKhau });
-              dispatch(userStatus(res.data));
-              setTimeout(() => {
-                navigate(path.homePage);
-              }, 1000);
-            }
-            if (res.data.maLoaiNguoiDung == "GV") {
-              showNotification(`Chào mừng giáo vụ ${res.data.hoTen}`, "info");
-              setLocalStorage("admin", {
-                ...res.data,
-                matKhau: values.matKhau,
-              });
-              dispatch(userStatus(res.data));
-              setTimeout(() => {
-                navigate(path.manageUser);
-              }, 1000);
-            }
+            showNotification("Đăng ký thành công", "success");
+            setTimeout(() => {
+              resetForm();
+              window.location.reload();
+            }, 1000);
           })
           .catch((err) => {
-            showNotification("Sai mật khẩu hoặc tài khoản", "error");
-          })
-          .finally(() => {
-            resetForm();
+            console.log(err);
+            showNotification(`${err.response.data}`, "error");
           });
       },
-      validationSchema: utils.validationForm1,
+      validationSchema: utils.validationForm2,
     });
+
+  useImperativeHandle(ref, () => ({
+    resetForm: () => {
+      resetForm();
+    },
+  }));
+
   return (
     <>
       <h2 className="text-3xl font-bold text-purple-800 underline uppercase text-center">
@@ -58,20 +52,25 @@ const SignUp = () => {
       </h2>
       <form className="space-y-5" onSubmit={handleSubmit}>
         <InputCustom
-          // id={"taiKhoan"}
+          id={"taiKhoan"}
           name={"taiKhoan"}
           labelContent={"Tài khoản"}
           typeInput="text"
           value={values.taiKhoan}
+          touched={touched.taiKhoan}
           onChange={handleChange}
+          error={errors.taiKhoan}
         />
         <InputCustom
-          // id={"matKhau"}
+          id={"matKhau"}
           name={"matKhau"}
           labelContent={"Mật khẩu"}
           typeInput="password"
           onChange={handleChange}
           value={values.matKhau}
+          touched={touched.matKhau}
+          autocomplete="current-password"
+          error={errors.matKhau}
         />
         <InputCustom
           id={"checkMatKhau"}
@@ -80,6 +79,9 @@ const SignUp = () => {
           typeInput="password"
           onChange={handleChange}
           value={values.checkMatKhau}
+          touched={touched.checkMatKhau}
+          autocomplete="new-password"
+          error={errors.checkMatKhau}
         />
         <InputCustom
           id={"hoTen"}
@@ -88,6 +90,8 @@ const SignUp = () => {
           typeInput="text"
           onChange={handleChange}
           value={values.hoTen}
+          touched={touched.hoTen}
+          error={errors.hoTen}
         />
         <InputCustom
           id={"email"}
@@ -96,6 +100,8 @@ const SignUp = () => {
           typeInput="text"
           onChange={handleChange}
           value={values.email}
+          touched={touched.email}
+          error={errors.email}
         />
         <InputCustom
           id={"soDT"}
@@ -103,6 +109,8 @@ const SignUp = () => {
           labelContent={"Số Điện Thoại"}
           onChange={handleChange}
           value={values.soDT}
+          touched={touched.soDT}
+          error={errors.soDT}
         />
         <div className="flex items-center text-gray-500">
           <p className="text-sm">
@@ -126,6 +134,6 @@ const SignUp = () => {
       </form>
     </>
   );
-};
+});
 
 export default SignUp;

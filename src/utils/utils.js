@@ -59,7 +59,7 @@ const validationForm2 = yup.object({
     .string()
     .min(8, "(*) Mật khẩu ít nhất 8 ký tự")
     .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])$/,
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/,
       "(*) Mật khẩu ít nhất 1 chữ hoa, 1 chữ thường, 1 ký tự đặc biệt và 1 chữ số"
     )
     .required("(*) Xin nhập mật khẩu"),
@@ -78,7 +78,7 @@ const validationForm2 = yup.object({
       "(*) Xin nhập đúng định dạng email"
     )
     .required("(*) Xin nhập email"),
-  phone: yup
+  soDT: yup
     .string()
     .matches(/^(\+84|084|0)[1-9][0-9]{8}$/, "(*) Xin nhập SĐT Việt Nam")
     .required("(*) Xin nhập số điện thoại"),
