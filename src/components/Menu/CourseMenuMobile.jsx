@@ -1,8 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Menu } from "antd";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { path } from "../../common/path";
+import { useDispatch, useSelector } from "react-redux";
+import { NotificationContext } from "../../App";
+import { userStatus } from "../../redux/userSlice";
 
-const CourseMenuMobile = ({ valueDanhMuc }) => {
+const CourseMenuMobile = ({ valueDanhMuc, onClose }) => {
+  const { infoUser } = useSelector((state) => state.userSlice);
+  const { showNotification } = useContext(NotificationContext);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const checkUserLogin = () => {
+    return infoUser ? (
+      <button className="text-purple-700 underline font-bold">
+        <Link to={path.userInfo}>Thông tin cá nhân</Link>
+      </button>
+    ) : (
+      <button className="text-purple-700 underline font-bold">
+        <Link to={"/login"}>Đăng nhập</Link>
+      </button>
+    );
+  };
+
   const items = [
     {
       key: "sub1",
@@ -49,10 +70,25 @@ const CourseMenuMobile = ({ valueDanhMuc }) => {
     },
     {
       key: "sub5",
-      label: (
-        <button className="text-purple-700 underline font-bold">
-          <Link to={"/login"}>Đăng nhập</Link>
-        </button>
+      label: checkUserLogin(),
+    },
+    {
+      key: "sub6",
+      label: infoUser ? (
+        <Link
+          to={path.homePage}
+          className="absolute right-6 top-0 text underline font-semibold"
+          onClick={() => {
+            dispatch(userStatus(null));
+            localStorage.removeItem("user");
+            showNotification("Đăng xuất thành công", "info");
+            onClose(false);
+          }}
+        >
+          Đăng xuất
+        </Link>
+      ) : (
+        <></>
       ),
     },
   ];

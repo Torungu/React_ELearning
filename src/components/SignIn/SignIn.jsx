@@ -62,7 +62,7 @@ const SignIn = forwardRef((props, ref) => {
     <>
       <div></div>
       <div className="space-y-5">
-        <h2 className="text-3xl uppercase font-bold text-purple-800 text-center underline">
+        <h2 className="text-2xl sm:text-3xl uppercase font-bold text-purple-800 text-center underline">
           Đăng nhập
         </h2>
         <form className="space-y-5" onSubmit={handleSubmit}>
@@ -106,11 +106,11 @@ const SignIn = forwardRef((props, ref) => {
           <div className="text-center space-y-5 relative">
             <div className="">
               <hr />
-              <h3 className="text-gray-400 text-sm absolute top-[-12%] left-[38%] bg-white px-2">
+              <h3 className="text-gray-400 text-sm absolute top-[-12%] left-[30%] sm:left-[38%] bg-white px-2">
                 Other login options
               </h3>
             </div>
-            <div className="container mx-auto grid grid-cols-3 items-center w-1/3 gap-3">
+            <div className="container mx-auto grid grid-cols-3 items-center w-1/2 sm:w-1/3 gap-3">
               <img
                 src="/icons8-facebook-48.png"
                 alt=""

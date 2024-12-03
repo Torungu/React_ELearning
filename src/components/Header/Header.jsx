@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import LogoIcon from "../Icon/LogoIcon";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import FormSearchKhoaHoc from "../Form/FormSearchKhoaHoc";
 import CourseMenu from "../Menu/CourseMenu";
 import WrapperSuggestCourse from "../Wrapper/WrapperSuggestCourse";
-import MobileMenu from "../Menu/MobileMenu";
 import { Avatar, Dropdown, Drawer, Menu } from "antd";
 import UserIcon from "../Icon/UserIcon";
 import LogOutIcon from "../Icon/LogOutIcon";
@@ -12,15 +11,15 @@ import { path } from "../../common/path";
 import { useDispatch, useSelector } from "react-redux";
 import { userStatus } from "../../redux/userSlice";
 import { khoaHocService } from "../../service/khoaHoc.service";
-import MobileMenuGlass from "../Menu/MobileMenuGlass";
 import CourseMenuMobile from "../Menu/CourseMenuMobile";
+import { NotificationContext } from "../../App";
 
 const Header = () => {
   const { infoUser } = useSelector((state) => state.userSlice);
   const [valueDanhMuc, setValueDanhMuc] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
+  const { showNotification } = useContext(NotificationContext);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     khoaHocService
@@ -54,6 +53,7 @@ const Header = () => {
           onClick={() => {
             dispatch(userStatus(null));
             localStorage.removeItem("user");
+            showNotification("Đăng xuất thành công", "info");
           }}
         >
           <LogOutIcon />
@@ -92,9 +92,6 @@ const Header = () => {
           >
             Đăng nhập
           </Link>
-          {/* <Link className="text-white border-2 rounded-md p-2" to={"/sign-up"}>
-            Đăng ký
-          </Link> */}
         </div>
       </>
     );
@@ -117,7 +114,6 @@ const Header = () => {
       <header>
         <div className="container mx-auto">
           <div className="flex items-center justify-between">
-            {/* <nav className="header_main sm:text-xs md:text-sm lg:text-base tiny:!hidden sm:!block"> */}
             <div className="flex items-center gap-10">
               <Link to={path.homePage}>
                 <LogoIcon />
@@ -139,7 +135,10 @@ const Header = () => {
                   </button>
                   <Drawer onClose={onClose} open={open}>
                     <div className="course-menu-mobile">
-                      <CourseMenuMobile valueDanhMuc={valueDanhMuc} />
+                      <CourseMenuMobile
+                        valueDanhMuc={valueDanhMuc}
+                        onClose={onClose}
+                      />
                     </div>
                   </Drawer>
                 </div>
@@ -163,8 +162,6 @@ const Header = () => {
               </div>
             </div>
           </div>
-          {/* <MobileMenu valueDanhMuc={valueDanhMuc} /> */}
-          {/* <MobileMenuGlass valueDanhMuc={valueDanhMuc} /> */}
         </div>
         {showSearch && (
           <div className="container mx-auto py-2">

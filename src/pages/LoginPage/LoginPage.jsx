@@ -85,18 +85,28 @@ const LoginPage = () => {
           </div>
         </div>
         {/* Login Mobile */}
-        {/* <div className="block sm:hidden">
+        <div className="block sm:hidden">
           <div className="flex flex-col space-y-5">
             <div className={`grid grid-cols-2 login-mobile ${change}`}>
               <button
                 className="login-mobile-left font-semibold rounded-md py-2 uppercase text-center"
-                onClick={() => setChange("nonactive")}
+                onClick={() => {
+                  setChange("nonactive");
+                  if (signUpRef.current) {
+                    signUpRef.current.resetForm();
+                  }
+                }}
               >
                 Đăng nhập
               </button>
               <button
                 className="login-mobile-right font-semibold rounded-md py-2 uppercase text-center"
-                onClick={() => setChange("active")}
+                onClick={() => {
+                  setChange("active");
+                  if (signInRef.current) {
+                    signInRef.current.resetForm();
+                  }
+                }}
               >
                 Đăng ký
               </button>
@@ -104,138 +114,14 @@ const LoginPage = () => {
             </div>
             <div className="login-mobile-content">
               <div className="space-y-3 login-dang-nhap">
-                <h2 className="text-xl font-bold text-purple-800 uppercase text-center">
-                  Đăng nhập
-                </h2>
-                <form className="space-y-3" onSubmit={handleSubmit}>
-                  <InputCustom
-                    name="taiKhoan"
-                    labelContent="Tài khoản"
-                    typeInput="text"
-                    value={values.taiKhoan}
-                    onChange={handleChange}
-                  />
-                  <InputCustom
-                    name="matKhau"
-                    labelContent="Mật khẩu"
-                    typeInput="password"
-                    onChange={handleChange}
-                    value={values.matKhau}
-                  />
-                  <div className="flex items-center gap-2">
-                    <input type="checkbox" />
-                    <span className="text-sm">Ghi nhớ đăng nhập</span>
-                  </div>
-                  <div className="text-gray-500 text-sm">
-                    <p>
-                      Quên mật khẩu ?{" "}
-                      <button className="text-purple-500 underline font-semibold">
-                        Khôi phục
-                      </button>
-                    </p>
-                  </div>
-                  <button
-                    type="submit"
-                    className="px-5 py-3 rounded-md button-left border-transparent active:scale-90"
-                  >
-                    Đăng nhập
-                  </button>
-                  <div className="text-center space-y-5 relative">
-                    <div className="">
-                      <hr />
-                      <h3 className="text-gray-400 text-sm absolute top-[-12%] left-[30%] bg-white px-2">
-                        Other login options
-                      </h3>
-                    </div>
-                    <div className="container mx-auto grid grid-cols-3 items-center gap-3 w-1/2">
-                      <img
-                        src="../../../public/icons8-facebook-48.png"
-                        alt=""
-                        className="border p-1 hover:bg-purple-200 duration-300 cursor-pointer"
-                      />
-                      <img
-                        src="../../../public/icons8-google-48.png"
-                        alt=""
-                        className="border p-1 hover:bg-purple-200 duration-300 cursor-pointer"
-                      />
-                      <img
-                        src="../../../public/icons8-apple-50.png"
-                        alt=""
-                        className="border p-1 hover:bg-purple-200 duration-300 cursor-pointer"
-                      />
-                    </div>
-                  </div>
-                </form>
+                <SignIn ref={signInRef} />
               </div>
               <div className="space-y-3 login-dang-ky">
-                <h2 className="text-xl font-bold text-purple-800 uppercase text-center">
-                  Đăng ký
-                </h2>
-                <form className="space-y-3" onSubmit={handleSubmit}>
-                  <InputCustom
-                    name="taiKhoan"
-                    labelContent="Tài khoản"
-                    typeInput="text"
-                    value={values.taiKhoan}
-                    onChange={handleChange}
-                  />
-                  <InputCustom
-                    name="matKhau"
-                    labelContent="Mật khẩu"
-                    typeInput="password"
-                    onChange={handleChange}
-                    value={values.matKhau}
-                  />
-                  <InputCustom
-                    name="hoTen"
-                    labelContent="Họ và Tên"
-                    typeInput="text"
-                    onChange={handleChange}
-                    value={values.hoTen}
-                  />
-                  <InputCustom
-                    name="email"
-                    labelContent="Email"
-                    typeInput="text"
-                    onChange={handleChange}
-                    value={values.email}
-                  />
-                  <InputCustom
-                    name="soDT"
-                    labelContent="Số Điện Thoại"
-                    onChange={handleChange}
-                    value={values.soDT}
-                  />
-                  <div className="flex items-center text-gray-500">
-                    <p className="text-sm">
-                      Khi đăng ký bạn chấp nhận các{" "}
-                      <a
-                        href="#"
-                        className="text-purple-500 underline font-semibold"
-                      >
-                        Điều khoản
-                      </a>{" "}
-                      và{" "}
-                      <a
-                        href="#"
-                        className="text-purple-500 underline font-semibold"
-                      >
-                        Chính sách
-                      </a>{" "}
-                      của chúng tôi
-                    </p>
-                  </div>
-                  <button
-                    type="submit"
-                    className="px-5 py-3 rounded-md button-left text-center border-transparent active:scale-90"
-                  >
-                    Đăng ký
-                  </button>
-                </form>
+                <SignUp ref={signUpRef} />
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
       <Footer />
     </>

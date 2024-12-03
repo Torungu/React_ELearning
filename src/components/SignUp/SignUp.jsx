@@ -47,7 +47,7 @@ const SignUp = forwardRef((props, ref) => {
 
   return (
     <>
-      <h2 className="text-3xl font-bold text-purple-800 underline uppercase text-center">
+      <h2 className="text-2xl sm:text-3xl font-bold text-purple-800 underline uppercase text-center">
         Đăng ký
       </h2>
       <form className="space-y-5" onSubmit={handleSubmit}>
