@@ -108,71 +108,68 @@ const UserInfoTemplate = () => {
 
   const tabItems = [
     {
-      label: "Thông tin cá nhân",
+      label: "Chỉnh sửa thông tin",
       key: "1",
       children: (
         <>
-          <div className="mx-auto xs:max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-[1140px] space-y-8">
-            <form
-              className="tiny:block sm:grid sm:grid-cols-2 lg:grid-rows-3 gap-x-5 items-center"
-              onSubmit={handleSubmit}
-            >
-              <div className="tiny:w-full md:w-1/2">
-                <InputCustom
-                  name="taiKhoan"
-                  labelContent="Tài khoản"
-                  typeInput="text"
-                  placeholder={values.taiKhoan}
-                  onChange={handleChange}
-                  disabled={true}
-                />
-              </div>
-              <div className="tiny:w-full md:w-1/2">
-                <InputCustom
-                  name="matKhau"
-                  labelContent="Mật khẩu"
-                  typeInput="password"
-                  onChange={handleChange}
-                  value={values.matKhau}
-                />
-              </div>
-              <div className="tiny:w-full md:w-1/2">
-                <InputCustom
-                  name="hoTen"
-                  labelContent="Họ và Tên"
-                  typeInput="text"
-                  onChange={handleChange}
-                  value={values.hoTen}
-                />
-              </div>
-              <div className="tiny:w-full md:w-1/2">
-                <InputCustom
-                  name="email"
-                  labelContent="Email"
-                  typeInput="text"
-                  onChange={handleChange}
-                  value={values.email}
-                />
-              </div>
-              <div className="tiny:w-full md:w-1/2">
-                <InputCustom
-                  name="soDT"
-                  labelContent="Số Điện Thoại"
-                  onChange={handleChange}
-                  value={values.soDT}
-                />
-              </div>
-              <div className="lg:px-16">
-                <br />
-                <button
-                  type="submit"
-                  className="font-bold text-center w-1/2 button-right p-2"
-                >
-                  Cập nhật
-                </button>
-              </div>
-            </form>
-          </div>
+          <form className="space-y-4" onSubmit={handleSubmit}>
+            <div className="">
+              <InputCustom
+                id={"taiKhoan"}
+                name={"taiKhoan"}
+                labelContent={"Tài khoản"}
+                value={values.taiKhoan}
+                onChange={handleChange}
+                touched={touched.taiKhoan}
+                readOnly={true}
+              />
+            </div>
+            <div className="">
+              <InputCustom
+                id="matKhau"
+                name="matKhau"
+                labelContent="Mật khẩu"
+                value={values.matKhau}
+                typeInput="password"
+                onChange={handleChange}
+                touched={touched.matKhau}
+              />
+            </div>
+            <div className="">
+              <InputCustom
+                name="hoTen"
+                labelContent="Họ và Tên"
+                typeInput="text"
+                onChange={handleChange}
+                value={values.hoTen}
+              />
+            </div>
+            <div className="">
+              <InputCustom
+                name="email"
+                labelContent="Email"
+                typeInput="text"
+                onChange={handleChange}
+                value={values.email}
+              />
+            </div>
+            <div className="">
+              <InputCustom
+                name="soDT"
+                labelContent="Số Điện Thoại"
+                onChange={handleChange}
+                value={values.soDT}
+              />
+            </div>
+            <div className="">
+              <button
+                type="submit"
+                className="font-bold text-center w-1/2 button-right p-2 border-transparent"
+              >
+                Cập nhật
+              </button>
+            </div>
+          </form>
         </>
       ),
     },
@@ -181,8 +178,8 @@ const UserInfoTemplate = () => {
       key: "2",
       children: (
         <>
-          <div className="mx-auto xs:max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-[1140px] space-y-8">
-            <div className="tiny:block sm:grid md:grid-cols-2 gap-x-40 gap-y-5">
+          <div className="mx-auto space-y-8">
+            <div className="grid grid-cols-2 gap-x-40 gap-y-5">
               <h1 className="text-3xl font-bold mb-5">
                 Các lớp học đã tham gia
               </h1>
@@ -244,53 +241,58 @@ const UserInfoTemplate = () => {
   return (
     <>
       <Header />
-      <div className="container listKhoaHoc py-10 xs:max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-[1140px] space-y-8">
-        <h1 className="font-bold text-3xl mt-16 text-[#211C5B] mx-auto">
-          Các khóa học mới nhất
-        </h1>
-        <div className="tiny:block sm:grid md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto">
-          {listKhoaHocMoi.splice(6, 7).map((item, index) => {
-            // console.log(item);
-            return (
-              <div className="list_item">
-                <div className="mb-3 img_content">
-                  <img
-                    src={item?.hinhAnh}
-                    alt="err"
-                    className="xs:!w-full xs:!h-full md:!w-[310px] md:!h-[176px]"
-                  />
-                </div>
-                <div className="mb-3">
-                  <h2 className="leading-8">{item?.tenKhoaHoc}</h2>
-                </div>
-                <div className="mb-3">
-                  <p className="text-[#7A7A7A] text-base">
-                    {truncateText(item?.moTa, 65)}
-                  </p>
-                </div>
-                <div className="flex items-center justify-start mb-8">
-                  <div>
-                    <i className="fa-solid fa-user-graduate text-2xl" />
-                    <p className="inline text-xl font-semibold mx-5">
-                      {item?.soLuongHocVien}
-                    </p>
-                  </div>
-                  <span className="text-[#E31C8D] me-4 inline-block">
-                    <i className="fa-solid fa-star" />
-                    <i className="fa-solid fa-star" />
-                    <i className="fa-solid fa-star" />
-                    <i className="fa-solid fa-star" />
-                    <i className="fa-regular fa-star" />
-                  </span>
-                </div>
-                <Link to={`/chi-tiet?maKhoaHoc=${item.maKhoaHoc}`}>
-                  ĐĂNG KÝ
-                </Link>
-              </div>
-            );
-          })}
+      <div className="container mx-auto pt-32 pb-10 grid grid-cols-12">
+        <div className="space-y-5 col-span-4">
+          <h1 className="text-2xl font-bold">Hồ sơ</h1>
+          <div className="flex gap-5">
+            <img
+              src="/public/Elon_Musk.jpg"
+              alt=""
+              className="rounded-lg w-20 h-20 object-cover object-top"
+            />
+            <div>
+              <h2 className="text-lg font-bold">{values.hoTen}</h2>
+              <h3 className="text-sm text-gray-500">#{values.taiKhoan}</h3>
+            </div>
+          </div>
+          <div className="space-y-2">
+            <h1 className="font-semibold">Liên hệ</h1>
+            <ul className="text-gray-500 space-y-1 gap-2">
+              <li className="grid grid-cols-10 items-center ">
+                <i className="fa-regular fa-envelope col-span-1 text-center"></i>
+                <p className="col-span-2">Email:</p>
+                <p className="text-black col-span-6">{values.email}</p>
+              </li>
+              <li className="grid grid-cols-10 items-center">
+                <i className="fa-solid fa-mobile-screen col-span-1 text-center"></i>
+                <p className="col-span-2">Điện thoại:</p>
+                <p className="text-black col-span-6">{values.soDT}</p>
+              </li>
+            </ul>
+          </div>
+          <hr className="w-[70%]" />
+          <div className="space-y-2">
+            <h1 className="font-semibold">Chi tiết học viên</h1>
+            <ul className="text-gray-500 space-y-1">
+              <li className="grid grid-cols-10 items-center">
+                <i className="fa-solid fa-layer-group col-span-1 text-center"></i>
+                <p className="col-span-2">Nhóm:</p>
+                <p className="text-black col-span-6">{values.maNhom}</p>
+              </li>
+              <li className="grid grid-cols-10 items-center">
+                <i className="fa-solid fa-certificate col-span-1 text-center"></i>
+                <p className="col-span-2">Loại:</p>
+                <p className="text-black col-span-6">2</p>
+              </li>
+              <li className="grid grid-cols-10 items-center">
+                <i className="fa-solid fa-briefcase col-span-1 text-center"></i>
+                <p className="col-span-2">Tình trạng:</p>
+                <p className="text-black col-span-6">Còn học</p>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className="w-full tiny:px-2 mx-auto">
+        <div className="col-span-8">
           <Tabs onChange={onChange} type="card" items={tabItems} />
         </div>
       </div>

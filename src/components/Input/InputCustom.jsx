@@ -12,6 +12,7 @@ const InputCustom = ({
   touched,
   disabled = false,
   typeInput = "text",
+  readOnly = false,
 }) => {
   return (
     <div className="input-custom">
@@ -27,6 +28,7 @@ const InputCustom = ({
         value={value}
         onBlur={onBlur}
         disabled={disabled}
+        readOnly={readOnly}
       />
       <label
         htmlFor={id}
